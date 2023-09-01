@@ -2,11 +2,13 @@
 import './App.css';
 import RenderingLists from './RenderingLists';
 import Content from './Content';
+import Searchbar from './Searchbar';
 
 function App() {
     return <div className="App">
-    <RenderingLists />
-    <Content />
+      <Searchbar />
+    {/* <RenderingLists />
+    <Content /> */}
   </div>;
   
 }
