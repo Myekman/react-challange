@@ -6,9 +6,9 @@ import Searchbar from './Searchbar';
 
 function App() {
     return <div className="App">
-      <Searchbar />
-    {/* <RenderingLists />
-    <Content /> */}
+      {/* <Searchbar /> */}
+    {/* <RenderingLists /> */}
+    <Content />
   </div>;
   
 }

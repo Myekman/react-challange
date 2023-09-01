@@ -11,20 +11,46 @@ class Content extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLoaded: true
+            isLoaded: false,
+            posts: [],
         }
       }
+
+    componentDidMount() {
+        setTimeout(()=>{
+            this.setState({
+                isLoaded: true,
+                posts: savedPosts,
+            })
+        }, 2000)
+    }
+
+    handleChange = (e) => {
+        const name = e.target.value.toLowerCase(); 
+        const filerNames = savedPosts.filter((posts) => {
+            return posts.name.includes(name)
+        })
+        this.setState ({
+            posts: filerNames,
+        })
+    }
 
       render() {
         return (
         <div className={css.Content}>
 
             <div className = {css.TitleBar}>
-                <h2>Bilddaggbok</h2>
-            </div>
-
-            <div className={css.SearchResults}>
-                <p>bilder</p>
+            <h1>My Photos</h1>
+                    <form>
+                        <label htmlFor='searchinput'>Search</label>
+                        <input 
+                        type='search' 
+                        id='searchinput' 
+                        placeholder='By Author'
+                        onChange={(e) => this.handleChange(e)}
+                        />
+                        <h4>posts found {this.state.posts.length}</h4>
+                    </form>
             </div>
 
             <div className={css.SearchResults}>
